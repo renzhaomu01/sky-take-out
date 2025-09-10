@@ -60,6 +60,30 @@ public class CategoryController {
         return Result.success();
     }
 
+    /**
+     * 修改分类
+     * @param categoryDTO
+     * @return
+     */
+    @PutMapping()
+    @ApiOperation(value = "修改分类")
+    public Result update(@RequestBody CategoryDTO categoryDTO){
+        log.info("修改分类，参数为：{}",categoryDTO);
+        categoryService.update(categoryDTO);
+        return Result.success();
+    }
+
+    /**
+     * 根据id删除分类
+     * @return
+     */
+    @DeleteMapping()
+    @ApiOperation(value = "根据id删除分类")
+    public Result deleteById(Long id){
+        log.info("根据id删除分类，参数为：{}",id);
+        categoryService.deleteById(id);
+        return Result.success();
+    }
 
 
 }
